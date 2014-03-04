@@ -73,24 +73,23 @@ class alipay
     /**
      * 构造函数
      *
-     * @access  public
-     * @param
+     * devrain php5.4安装纠错: 构造函数重复定义了,php4和5的区别;注释掉重复的
      *
-     * @return void
      */
-    function alipay()
-    {
-    }
+//    function alipay()
+//    {
+//    }
 
     function __construct()
     {
-        $this->alipay();
+//        $this->alipay();
     }
 
     /**
      * 生成支付代码
-     * @param   array   $order      订单信息
-     * @param   array   $payment    支付方式信息
+     * @param   array $order 订单信息
+     * @param   array $payment 支付方式信息
+     * @return string
      */
     function get_code($order, $payment)
     {

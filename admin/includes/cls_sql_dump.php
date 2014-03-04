@@ -63,33 +63,19 @@ class cls_sql_dump
 
     /**
      *  类的构造函数
-     *
+     * devrain php5.4安装纠错:构造函数重复定义问题;合并为一个
      * @access  public
      * @param
      *
-     * @return void
-     */
-    function cls_sql_dump(&$db, $max_size=0)
-    {
-        $this->db = &$db;
-        if ($max_size > 0 )
-        {
-            $this->max_size = $max_size;
-        }
-
-    }
-
-    /**
-     *  类的构造函数
-     *
-     * @access  public
-     * @param
-     *
-     * @return void
+     * @param int $max_size
+     * @return \cls_sql_dump
      */
     function __construct(&$db, $max_size =0)
     {
-        $this->cls_sql_dump($db, $max_size);
+        $this->db = & $db;
+        if ($max_size > 0) {
+            $this->max_size = $max_size;
+        }
     }
 
     /**
@@ -469,13 +455,13 @@ class cls_sql_dump
 
     /**
      *  返回一个随机的名字
-     *
+     * devrain php5.4安装纠错: 此处的函数在其他位置被静态调用却没设置 static 属性 必须添加 static
      * @access  public
      * @param
      *
      * @return      string      $str    随机名称
      */
-    function get_random_name()
+    static function get_random_name()
     {
         $str = date('Ymd');
 

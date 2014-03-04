@@ -419,7 +419,11 @@ class cls_template
         }
         else
         {
-            $tag_sel = array_shift(explode(' ', $tag));
+            /*
+             * devrain php5.4安装纠错: 次处原本 array_shift(explode(' ', $tag))需要拆开,因为 array_shift 参数是引用传递
+             */
+            $val = explode(' ', $tag);
+            $tag_sel = array_shift($val);
             switch ($tag_sel)
             {
                 case 'if':

@@ -66,22 +66,22 @@ if (isset($set_modules) && $set_modules == TRUE)
 
 class ips
 {
-   /**
-    * 构造函数
-    *
-    * @access  public
-    * @param
-    *
-    * @return void
-    */
-    function ips()
-    {
-
-    }
+    /**
+     * 构造函数
+     * devrain php5.4安装纠错: 此处是构造函数重复定义问题,php4和5的区别;注释掉旧方式
+     * @access  public
+     * @internal param $
+     *
+     * @return \ips
+     */
+//    function ips()
+//    {
+//
+//    }
 
     function __construct()
     {
-        $this->ips();
+//        $this->ips();
     }
 
     /**

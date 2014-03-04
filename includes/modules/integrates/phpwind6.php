@@ -105,13 +105,15 @@ class phpwind6 extends integrate
 
     /**
      *  设置论坛cookie
-     *
+     *  devrain php5.4安装纠错: 此处的setcookie与继承的父类integrate的 set_cookie 参数不一致,需要添加 , $remember = null
      * @access  public
+     * @param string $username
      * @param
      *
      * @return void
      */
-    function set_cookie ($username="")
+//    function set_cookie ($username="")
+    function set_cookie($username = "", $remember = null)
     {
         parent::set_cookie($username);
         $cookie_name = substr(md5($this->db_sitehash), 0, 5) . '_winduser';

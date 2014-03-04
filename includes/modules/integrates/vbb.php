@@ -98,17 +98,18 @@ class vbb extends integrate
     }
 
 
-
-
     /**
      *  设置论坛cookie
-     *
+     * devrain php5.4安装纠错: 此处的 setcookie 与继承的父类integrate的set_cookie参数不一致,需要添加 , $remember = null
      * @access  public
-     * @param
+     * @param string $username
+     * @param null $remember
+     * @internal param $
      *
      * @return void
      */
-    function set_cookie ($username="")
+//    function set_cookie ($username="")
+    function set_cookie ($username="", $remember = null)
     {
         parent::set_cookie($username);
         if (empty($username))

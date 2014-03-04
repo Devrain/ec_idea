@@ -117,14 +117,16 @@ class ucenter extends integrate
 
     /**
      *  用户登录函数
-     *
+     *  devrain php5.4安装纠错: 此处的 login 与继承的父类integrate的 login 参数不一致,需要添加 , $remember = null
      * @access  public
-     * @param   string  $username
-     * @param   string  $password
+     * @param   string $username
+     * @param   string $password
      *
+     * @param null $remember
      * @return void
      */
-    function login($username, $password)
+//    function login($username, $password )
+    function login($username, $password, $remember = null)
     {
         list($uid, $uname, $pwd, $email, $repeat) = uc_call("uc_user_login", array($username, $password));
         $uname = addslashes($uname);
@@ -205,9 +207,19 @@ class ucenter extends integrate
         $this->ucdata = uc_call("uc_user_synlogout");   //同步退出
         return true;
     }
-
-    /*添加用户*/
-    function add_user($username, $password, $email)
+    /**
+     * 添加用户
+     * devrain php5.4安装纠错: 此处的 add_user 与父类 add_user 参数不一致,需添加 , $gender = -1, $bday = 0, $reg_date=0, $md5password=''
+     * @param $username
+     * @param $password
+     * @param $email
+     * @param $gender
+     * @param int $bday
+     * @param int $reg_date
+     * @param string $md5password
+     * @return bool|int
+     */
+    function add_user($username, $password, $email, $gender = -1, $bday = 0, $reg_date = 0, $md5password = '')
     {
         /* 检测用户名 */
         if ($this->check_user($username))
@@ -452,13 +464,15 @@ class ucenter extends integrate
 
     /**
      *  设置cookie
-     *
+     *  devrain php5.4安装纠错: 此处的setcookie与继承的父类integrate的 set_cookie 参数不一致,需要添加 , $remember = null
      * @access  public
+     * @param string $username
      * @param
      *
      * @return void
      */
-    function set_cookie($username='')
+//    function set_cookie ($username="")
+    function set_cookie($username = "", $remember = null)
     {
         if (empty($username))
         {

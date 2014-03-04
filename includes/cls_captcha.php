@@ -79,46 +79,30 @@ class captcha
     /**
      * 构造函数
      *
+     * devrain php5.4安装纠错:此处原本构造函数一样重复,合并成一个
      * @access  public
-     * @param   string  $folder     背景图片所在目录
-     * @param   integer $width      图片宽度
-     * @param   integer $height     图片高度
-     * @return  bool
-     */
-    function captcha($folder = '', $width = 145, $height = 20)
-    {
-        if (!empty($folder))
-        {
-            $this->folder = $folder;
-        }
-
-        $this->width    = $width;
-        $this->height   = $height;
-
-        /* 检查是否支持 GD */
-        if (PHP_VERSION >= '4.3')
-        {
-
-            return (function_exists('imagecreatetruecolor') || function_exists('imagecreate'));
-        }
-        else
-        {
-
-            return (((imagetypes() & IMG_GIF) > 0) || ((imagetypes() & IMG_JPG)) > 0 );
-        }
-    }
-
-    /**
-     * 构造函数
-     *
-     * @access  public
-     * @param
-     *
-     * @return void
+     * @param   string $folder 背景图片所在目录
+     * @param   integer $width 图片宽度
+     * @param   integer $height 图片高度
+     * @return \captcha
      */
     function __construct($folder = '', $width = 145, $height = 20)
     {
-        $this->captcha($folder, $width, $height);
+        if (!empty($folder)) {
+            $this->folder = $folder;
+        }
+
+        $this->width = $width;
+        $this->height = $height;
+
+        /* 检查是否支持 GD */
+        if (PHP_VERSION >= '4.3') {
+
+            return (function_exists('imagecreatetruecolor') || function_exists('imagecreate'));
+        } else {
+
+            return (((imagetypes() & IMG_GIF) > 0) || ((imagetypes() & IMG_JPG)) > 0);
+        }
     }
 
 
@@ -141,7 +125,7 @@ class captcha
      * 生成图片并输出到浏览器
      *
      * @access  public
-     * @param   string  $word   验证码
+     * @param bool|string $word 验证码
      * @return  mix
      */
     function generate_image($word = false)

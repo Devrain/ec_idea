@@ -377,8 +377,10 @@ function get_sysnav()
     $sysmain[] = array('-','-');
 
     $catlist = array_merge(cat_list(0, 0, false), array('-'), article_cat_list(0, 0, false));
+
     foreach($catlist as $key => $val)
     {
+        // devrain php5.4安装纠错: 这里的 Illegal string offset 警告暂未解决@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         $val['view_name'] = $val['cat_name'];
         for($i=0;$i<$val['level'];$i++)
         {

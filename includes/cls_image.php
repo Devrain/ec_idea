@@ -674,8 +674,11 @@ class cls_image
      *
      * @access      public
      * @return      int         可能的值为0，1，2
+     *
+     * devrain php5.4安装纠错:此函数在别处用静态调用方法,但未加 staitc 关键字
      */
-    function gd_version()
+
+    static function gd_version()
     {
         static $version = -1;
 

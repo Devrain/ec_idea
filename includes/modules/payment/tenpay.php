@@ -70,19 +70,19 @@ class tenpay
 {
     /**
      * 构造函数
-     *
+     * devrain php5.4安装纠错: 此处是构造函数重复定义问题,php4和5的区别;注释掉旧方式
      * @access  public
-     * @param
+     * @internal param $
      *
-     * @return void
+     * @return \tenpay
      */
-    function tenpay()
-    {
-    }
+//    function tenpay()
+//    {
+//    }
 
     function __construct()
     {
-        $this->tenpay();
+//        $this->tenpay();
     }
 
     /**

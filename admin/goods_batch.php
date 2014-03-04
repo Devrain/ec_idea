@@ -918,7 +918,12 @@ elseif ($_REQUEST['act'] == 'download')
 
 elseif ($_REQUEST['act'] == 'get_goods')
 {
-    $filter = &new stdclass;
+    /*
+     * devrain php5.4安装纠错: 此处不允许使用 =& 符号,需要把&去掉,5.3之后可以直接使用等号
+     *
+     */
+    // $filter = &new stdclass;
+    $filter = new stdclass;
 
     $filter->cat_id = intval($_GET['cat_id']);
     $filter->brand_id = intval($_GET['brand_id']);

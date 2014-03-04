@@ -101,13 +101,15 @@ class phpbb extends integrate
 
     /**
      *  设置论坛cookie
-     *
+     *  devrain php5.4安装纠错: 此处的setcookie与继承的父类integrate的set_cookie参数不一致,需要添加 , $remember = null
      * @access  public
+     * @param string $username
      * @param
      *
      * @return void
      */
-    function set_cookie ($username="")
+//    function set_cookie ($username="")
+    function set_cookie ($username="", $remember = null)
     {
         parent::set_cookie($username);
         if (empty($username))
