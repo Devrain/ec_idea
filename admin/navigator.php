@@ -375,12 +375,14 @@ function get_sysnav()
         );
 
     $sysmain[] = array('-','-');
-
-    $catlist = array_merge(cat_list(0, 0, false), array('-'), article_cat_list(0, 0, false));
+    // devrain  php5.4安装纠错: ② 这里的中间 , array('-') 不知道他妈的什么叼意思 去掉就没问题了
+//    $catlist = array_merge(cat_list(0, 0, false), array('-'), article_cat_list(0, 0, false));
+    $catlist = array_merge(cat_list(0, 0, false), article_cat_list(0, 0, false));
 
     foreach($catlist as $key => $val)
     {
-        // devrain php5.4安装纠错: 这里的 Illegal string offset 警告暂未解决@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        print_r($val);
+        // devrain php5.4安装纠错: ① 这里的 Illegal string offset
         $val['view_name'] = $val['cat_name'];
         for($i=0;$i<$val['level'];$i++)
         {
@@ -391,6 +393,7 @@ function get_sysnav()
         $sysmain[] = array($val['cat_name'], $val['url'], $val['view_name']);
     }
     return $sysmain;
+    exit();
 }
 
 /*------------------------------------------------------ */
