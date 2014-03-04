@@ -392,7 +392,6 @@ function get_sysnav()
         $sysmain[] = array($val['cat_name'], $val['url'], $val['view_name']);
     }
     return $sysmain;
-    exit();
 }
 
 /*------------------------------------------------------ */
