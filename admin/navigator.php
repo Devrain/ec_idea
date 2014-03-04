@@ -381,7 +381,6 @@ function get_sysnav()
 
     foreach($catlist as $key => $val)
     {
-        print_r($val);
         // devrain php5.4安装纠错: ① 这里的 Illegal string offset
         $val['view_name'] = $val['cat_name'];
         for($i=0;$i<$val['level'];$i++)
